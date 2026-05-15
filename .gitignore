@@ -1,0 +1,73 @@
+# Godot 4.6 C# 项目通用 .gitignore
+# =================================
+
+# --- Godot 编辑器缓存（自动生成，不应提交） ---
+.godot/
+
+# --- 导出构建产物 ---
+/android/
+/ios/
+/html5/
+/linuxbsd/
+/macos/
+/windows/
+/web/
+
+# --- C# / .NET 项目文件 ---
+# Mono 运行时缓存
+.mono/
+# .NET SDK 缓存
+.dotnet/
+# NuGet 包缓存
+.nuget/
+# 构建输出
+bin/
+obj/
+# 用户特定的项目配置
+*.csproj.user
+*.csproj.DotSettings.user
+# NuGet 包文件夹
+packages/
+
+# --- IDE / 编辑器配置 ---
+# VSCode
+.vscode/
+# Visual Studio
+.vs/
+# Rider / JetBrains
+.idea/
+*.sln.DotSettings.user
+*.sln.dotCover
+*.sln.docstates
+
+# --- 本地系统文件 ---
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+# Windows
+Thumbs.db:encryptable
+Desktop.ini
+# Linux
+.directory
+
+# --- 翻译文件（CSV 导入产生的二进制翻译文件） ---
+*.translation
+
+# --- 其他 ---
+# Godot 场景/资源备份
+*.tscn.old
+*.scn.old
+*.res.old
+# 日志
+export.log
+*.log
+# 临时文件
+*~
+*.tmp
+*.swp
+*.swo
