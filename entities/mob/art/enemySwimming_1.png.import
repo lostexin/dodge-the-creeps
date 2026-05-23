@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceramo61k86ur"
-path="res://.godot/imported/playerGrey_up1.png-6bd114d0a6beac91f48e3a7314d44564.ctex"
+uid="uid://wffyika58c55"
+path="res://.godot/imported/enemySwimming_1.png-f828a11ada20a03219bdaaf2857a26aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/playerGrey_up1.png"
-dest_files=["res://.godot/imported/playerGrey_up1.png-6bd114d0a6beac91f48e3a7314d44564.ctex"]
+source_file="res://entities/mob/art/enemySwimming_1.png"
+dest_files=["res://.godot/imported/enemySwimming_1.png-f828a11ada20a03219bdaaf2857a26aa.ctex"]
 
 [params]
 
