@@ -29,9 +29,11 @@ obj/
 # NuGet 包文件夹
 packages/
 
-# --- IDE / 编辑器配置 ---
+# --- IDE / 编辑器配置 / 扩展插件 ---
 # VSCode
 .vscode/
+# C# Dev Kit 扩展：缓存语言服务数据以提高该扩展性能，可安全删除，会自动重新生成
+*.lscache
 # Visual Studio
 .vs/
 # Rider / JetBrains
