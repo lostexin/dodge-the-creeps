@@ -135,6 +135,8 @@ public partial class Player : Area2D {
         EmitSignal(SignalName.Hit);
         // 禁用玩家碰撞检测，防止触发多次击中信号
         // SetDeferred：在当前帧结束时，设置指定属性的值
+        // 如果在引擎的碰撞处理过程中禁用区域的碰撞形状可能会导致错误，
+        // 使用 SetDeferred() 告诉 Godot 等待可以安全地禁用形状时再这样做
         _collisionShape2D.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
     }
 }
