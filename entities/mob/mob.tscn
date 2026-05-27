@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b775bj8h8cco1"]
 
 [ext_resource type="Texture2D" uid="uid://sevod3d6i4b0" path="res://entities/mob/art/enemyFlyingAlt_1.png" id="1_ap0bf"]
+[ext_resource type="Script" uid="uid://vn0dq6tvud2g" path="res://entities/mob/Mob.cs" id="1_x2ey4"]
 [ext_resource type="Texture2D" uid="uid://cdrmgsweant3w" path="res://entities/mob/art/enemyFlyingAlt_2.png" id="2_x2ey4"]
 [ext_resource type="Texture2D" uid="uid://wffyika58c55" path="res://entities/mob/art/enemySwimming_1.png" id="3_p1kbw"]
 [ext_resource type="Texture2D" uid="uid://dl0207owsd250" path="res://entities/mob/art/enemySwimming_2.png" id="4_4vgeu"]
@@ -47,9 +48,10 @@ animations = [{
 radius = 36.0
 height = 100.0
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=880642439]
+[node name="Mob" type="RigidBody2D" unique_id=880642439]
 collision_layer = 2
 gravity_scale = 0.0
+script = ExtResource("1_x2ey4")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1276285458]
@@ -62,3 +64,6 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ap0bf")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1905332927]
+rect = Rect2(-50, -36, 100, 72)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnMobScreenExited"]
