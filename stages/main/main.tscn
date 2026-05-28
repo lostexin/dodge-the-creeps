@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://djvvyymw3plms"]
 
 [ext_resource type="PackedScene" uid="uid://biyi5ge25u4r4" path="res://entities/player/player.tscn" id="1_6almw"]
+[ext_resource type="Script" uid="uid://be5c3m00t640x" path="res://stages/main/Main.cs" id="1_60rri"]
+[ext_resource type="PackedScene" uid="uid://b775bj8h8cco1" path="res://entities/mob/mob.tscn" id="2_5powy"]
 
 [sub_resource type="Curve2D" id="Curve2D_6almw"]
 _data = {
@@ -9,6 +11,8 @@ _data = {
 point_count = 5
 
 [node name="Main" type="Node" unique_id=16077793]
+script = ExtResource("1_60rri")
+MobScene = ExtResource("2_5powy")
 
 [node name="Player" parent="." unique_id=1097003253 instance=ExtResource("1_6almw")]
 
@@ -28,3 +32,8 @@ position = Vector2(240, 450)
 curve = SubResource("Curve2D_6almw")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" unique_id=1455286578]
+
+[connection signal="Hit" from="Player" to="." method="GameOver"]
+[connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="OnScoreTimerTimeout"]
+[connection signal="timeout" from="StartTimer" to="." method="OnStartTimerTimeout"]
