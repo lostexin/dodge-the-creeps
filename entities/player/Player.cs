@@ -115,10 +115,9 @@ public partial class Player : Area2D {
     }
 
     /// <summary>
-    /// 开始游戏
+    /// 开始游戏：重置玩家位置、显示玩家、启用玩家碰撞检测
     /// </summary>
     public void Start(Vector2 position) {
-        // 游戏开始时重置玩家：重置位置、显示玩家、启用玩家碰撞检测
         Position = position;
         Show();
         _collisionShape2D.Disabled = false;
