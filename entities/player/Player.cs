@@ -131,6 +131,7 @@ public partial class Player : Area2D {
         // 玩家被击中后隐藏
         Hide();
         // 触发击中信号
+        GD.Print("OnBodyEntered: Signal Hit");
         EmitSignal(SignalName.Hit);
         // 禁用玩家碰撞检测，防止触发多次击中信号
         // SetDeferred：在当前帧结束时，设置指定属性的值
