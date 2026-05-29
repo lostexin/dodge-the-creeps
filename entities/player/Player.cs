@@ -115,11 +115,16 @@ public partial class Player : Area2D {
     }
 
     /// <summary>
-    /// 开始游戏：重置玩家位置、显示玩家、启用玩家碰撞检测
+    /// 重置玩家：重置位置（设置出生点）和朝向、显示玩家、启用玩家碰撞检测
     /// </summary>
-    public void Start(Vector2 position) {
+    public void ResetPlayer(Vector2 position) {
+        // 重置位置（设置出生点）和朝向
         Position = position;
+        _animatedSprite2D.FlipV = false;
+        _animatedSprite2D.FlipH = false;
+        // 显示玩家
         Show();
+        // 启用玩家碰撞检测
         _collisionShape2D.Disabled = false;
     }
 

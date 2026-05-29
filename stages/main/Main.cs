@@ -11,6 +11,9 @@ public partial class Main : Node {
     [Export(PropertyHint.Range, "150,250,0.5,suffix:px/s")]
     public float MobMaxVelocity { get; set; } = 250.0f;
 
+    // Main 场景树
+    private SceneTree _sceneTree;
+
     // 玩家节点
     private Player _player;
     // 玩家起始位置节点
@@ -23,6 +26,8 @@ public partial class Main : Node {
     private Timer _scoreTimer;
     // 开始计时器节点：游戏开始倒计时（延迟 2s），一次性（不自动重启）
     private Timer _startTimer;
+    // 信息界面节点
+    private HUD _hud;
 
     // 游戏分数
     private int _score;
@@ -32,6 +37,9 @@ public partial class Main : Node {
     /// 节点就绪时调用（节点和其子节点都进入场景树）
     /// </remarks>
     public override void _Ready() {
+        // 获取 Main 场景树
+        _sceneTree = GetTree();
+
         // 获取玩家节点
         _player = GetNode<Player>("Player");
         // 获取玩家起始位置节点
@@ -44,32 +52,44 @@ public partial class Main : Node {
         _scoreTimer = GetNode<Timer>("ScoreTimer");
         // 获取开始计时器节点
         _startTimer = GetNode<Timer>("StartTimer");
-
-        // 开始游戏
-        NewGame();
+        // 获取信息界面节点
+        _hud = GetNode<HUD>("HUD");
     }
 
     /// <summary>
     /// 游戏结束
     /// </summary>
-    public void GameOver() {
+    public async void GameOver() {
         // 停止敌人生成计时器
         _mobTimer.Stop();
         // 停止分数计时器
         _scoreTimer.Stop();
+
         GD.Print($"Game Over: Score {_score}");
+        // 显示游戏结束信息
+        await _hud.ShowGameOver();
     }
 
     /// <summary>
-    /// 开始游戏
+    /// 开始游戏：重置分数、玩家、敌人，更新信息界面
     /// </summary>
     public void NewGame() {
         // 重置分数
         _score = 0;
-        // 在起始位置开始游戏（设置出生点）
-        _player.Start(_startPosition.Position);
+        // 更新分数到信息界面
+        _hud.UpdateScore(_score);
+
+        // 重置玩家（设置出生点等）
+        _player.ResetPlayer(_startPosition.Position);
+        // 删除旧的敌人：调用 mobs 组中每个 Mob 节点的删除函数
+        // QueueFree：在当前帧结束时，销毁 Mob 节点（包括子节点）并释放内存
+        _sceneTree.CallGroup("mobs", Node.MethodName.QueueFree);
+
+        // 显示准备提示
+        _hud.ShowMessage("Get Ready!\n准备开始！");
         // 启动开始计时器（2s 延迟后正式开始）
         _startTimer.Start();
+
         GD.Print("New Game");
     }
 
@@ -118,11 +138,14 @@ public partial class Main : Node {
     }
 
     /// <summary>
-    /// 监听分数计时器结束信号
+    /// 监听分数计时器结束信号：分数加 1
     /// </summary>
     private void OnScoreTimerTimeout() {
         // 1分/s
         _score++;
+        // 更新分数到信息界面
+        _hud.UpdateScore(_score);
+
         // GD.Print($"OnScoreTimerTimeout: Score {_score}");
     }
 }
