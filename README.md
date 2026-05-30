@@ -1,8 +1,8 @@
 # Dodge the Creeps! 躲避敌人！
 
-> Godot 官方 2D 教程练习
+> Godot 官方文档 2D 小游戏练习
 
-这是一个基于 Godot 官方 2D 教程 **[Dodge the Creeps!](https://docs.godotengine.org/zh-cn/4.x/getting_started/first_2d_game/index.html)** 制作的练习项目，使用 Godot C#/.NET 实现。玩家需要控制角色在屏幕内移动，尽可能长时间躲避不断从四周生成的敌人；存活时间越久，分数越高。
+这是一个基于 Godot 官方文档 2D 小游戏教程 **[Dodge the Creeps!](https://docs.godotengine.org/zh-cn/4.x/getting_started/first_2d_game/index.html)** 制作的练习项目，使用 Godot C#/.NET 实现。玩家需要控制角色在屏幕内移动，尽可能长时间躲避不断从四周生成的敌人；存活时间越久，分数越高。
 
 ## 项目信息
 
