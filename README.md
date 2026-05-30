@@ -4,6 +4,8 @@
 
 这是一个基于 Godot 官方文档 2D 小游戏教程 **[Dodge the Creeps!](https://docs.godotengine.org/zh-cn/4.x/getting_started/first_2d_game/index.html)** 制作的练习项目，使用 Godot C#/.NET 实现。玩家需要控制角色在屏幕内移动，尽可能长时间躲避不断从四周生成的敌人；存活时间越久，分数越高。
 
+![dodge-the-creeps-demo](screenshot/dodge-the-creeps-demo.gif)
+
 ## 项目信息
 
 - 引擎版本：Godot 4.6 / Godot.NET.Sdk 4.6.3
