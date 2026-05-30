@@ -13,7 +13,9 @@ config_version=5
 config/name="Dodge the Creeps"
 run/main_scene="uid://djvvyymw3plms"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
-config/icon="uid://dy3e73txn3um5"
+; uid 路径需要打开一次项目，建立 uid 缓存后才能显示项目图标，res 路径可以直接显示
+; config/icon="uid://dy3e73txn3um5"
+config/icon="res://icon.png"
 
 [display]
 
