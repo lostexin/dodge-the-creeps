@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://7iiu4yqa8nng" path="res://ui/hud/HUD.cs" id="1_4d6w6"]
 [ext_resource type="FontFile" uid="uid://dmnv4rxtk5c2s" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_xmswo"]
 
+[sub_resource type="InputEventAction" id="InputEventAction_4d6w6"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_e0nub"]
+events = [SubResource("InputEventAction_4d6w6")]
+
 [node name="HUD" type="CanvasLayer" unique_id=999890137]
 script = ExtResource("1_4d6w6")
 
@@ -53,6 +59,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_xmswo")
 theme_override_font_sizes/font_size = 40
+shortcut = SubResource("Shortcut_e0nub")
 text = "New Game
 开始游戏"
 

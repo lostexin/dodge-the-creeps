@@ -28,6 +28,10 @@ public partial class Main : Node {
     private Timer _startTimer;
     // 信息界面节点
     private HUD _hud;
+    // 背景音乐节点
+    private AudioStreamPlayer _music;
+    // 死亡音效节点
+    private AudioStreamPlayer _deathSound;
 
     // 游戏分数
     private int _score;
@@ -54,12 +58,20 @@ public partial class Main : Node {
         _startTimer = GetNode<Timer>("StartTimer");
         // 获取信息界面节点
         _hud = GetNode<HUD>("HUD");
+        // 获取背景音乐节点
+        _music = GetNode<AudioStreamPlayer>("Music");
+        // 获取死亡音效节点
+        _deathSound = GetNode<AudioStreamPlayer>("DeathSound");
     }
 
     /// <summary>
     /// 游戏结束
     /// </summary>
     public async void GameOver() {
+        // 停止背景音乐并播放死亡音效
+        _music.Stop();
+        _deathSound.Play();
+
         // 停止敌人生成计时器
         _mobTimer.Stop();
         // 停止分数计时器
@@ -71,9 +83,12 @@ public partial class Main : Node {
     }
 
     /// <summary>
-    /// 开始游戏：重置分数、玩家、敌人，更新信息界面
+    /// 开始游戏：播放背景音乐，重置分数、玩家、敌人，更新信息界面
     /// </summary>
     public void NewGame() {
+        // 播放背景音乐
+        _music.Play();
+
         // 重置分数
         _score = 0;
         // 更新分数到信息界面
