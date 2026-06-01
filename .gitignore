@@ -2,16 +2,14 @@
 # =================================
 
 # --- Godot 编辑器缓存（自动生成，不应提交） ---
+# 如 uid 缓存，项目图标使用 uid 路径时，需要打开一次项目，建立 uid 缓存后才能显示（项目列表中），res 路径可以直接显示
 .godot/
 
 # --- 导出构建产物 ---
-/android/
-/ios/
-/html5/
-/linuxbsd/
-/macos/
-/windows/
-/web/
+# 游戏导出目录，如 build/windows、build/linux、build/android
+build/
+# export_presets.cfg：含绝大多数导出配置，可安全提交
+# .godot/export_credentials.cfg：含机密的导出选项，如密码和加密密钥，非必要无需提交
 
 # --- C# / .NET 项目文件 ---
 # Mono 运行时缓存
