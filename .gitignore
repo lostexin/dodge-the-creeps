@@ -27,6 +27,13 @@ obj/
 # NuGet 包文件夹
 packages/
 
+# --- Node.js 工具链 ---
+# 项目依赖
+node_modules/
+# 当前 git 仓库钩子脚本目录（git config core.hooksPath），
+# husky 将其作为自定义钩子（如 .husky/commit-msg）的桥接层，无需提交，可重新生成（pnpm prepare）
+.husky/_/
+
 # --- IDE / 编辑器配置 / 扩展插件 ---
 # VSCode
 .vscode/

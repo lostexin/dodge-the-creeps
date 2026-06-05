@@ -1,0 +1,2 @@
+echo "pre-commit: lint-staged"
+pnpm exec lint-staged

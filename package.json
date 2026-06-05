@@ -1,0 +1,33 @@
+{
+  "name": "dodge-the-creeps",
+  "version": "1.0.0",
+  "description": "基于 Godot 官方文档 2D 小游戏教程制作的练习项目",
+  "note": "要启用提交消息检查和暂存区 C# 代码格式化，需要先 pnpm install 安装依赖，再 pnpm prepare 使 husky 就绪",
+  "scripts": {
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.cs": "dotnet format \"Dodge the Creeps.sln\" --include"
+  },
+  "keywords": [
+    "Godot 4.6",
+    "C#",
+    ".NET 8.0"
+  ],
+  "author": "lostexin",
+  "license": "MIT",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.5.1",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "devDependencies": {
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7"
+  }
+}
